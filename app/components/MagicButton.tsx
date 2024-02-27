@@ -5,12 +5,14 @@ import { cn } from '@/utils/cn';
 export function MagicButton({
   children,
   className,
+  ...rest
 }: {
   children?: React.ReactNode;
   className?: string;
 }) {
   return (
     <button
+      {...rest}
       className={cn(
         'relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50',
         className

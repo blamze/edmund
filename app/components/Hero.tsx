@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { heroDialogs } from '@/app/data/heroData';
 import { MagicButton } from '@/app/components/MagicButton';
 import { cn } from '@/utils/cn';
+import Link from 'next/link';
 
 export function Hero() {
   const [helpButtonClass, setHelpButtonClass] = useState('invisible');
@@ -65,7 +66,9 @@ export function Hero() {
         >
           Help me
         </button>
-        <MagicButton className={exploreButtonClass}>Explore</MagicButton>
+        <Link href='/beginning' className={exploreButtonClass}>
+          <MagicButton className='w-full'>Explore</MagicButton>
+        </Link>
       </div>
     </div>
   );
