@@ -149,7 +149,7 @@ export const TypewriterEffectSmooth = ({
           width: 'fit-content',
         }}
         transition={{
-          duration: 2,
+          duration: 1,
           ease: 'linear',
           delay: 0.7,
         }}
@@ -160,8 +160,8 @@ export const TypewriterEffectSmooth = ({
             whiteSpace: 'nowrap',
           }}
         >
-          {renderWords()}{' '}
-        </div>{' '}
+          {renderWords()}
+        </div>
       </motion.div>
       <motion.span
         initial={{

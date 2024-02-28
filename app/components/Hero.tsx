@@ -19,9 +19,9 @@ export function Hero() {
       setWords(heroDialogs.dialog2);
       setTimeout(() => {
         setWords(heroDialogs.dialog3);
-        setTimeout(() => setHelpButtonClass('visible animate-fadeIn'), 4000);
-      }, 4000);
-    }, 6000);
+        setTimeout(() => setHelpButtonClass('visible animate-fadeIn'), 3000);
+      }, 3000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -38,10 +38,10 @@ export function Hero() {
           setWords(heroDialogs.dialog7);
           setTimeout(() => {
             setExploreButtonClass('visible animate-fadeIn');
-          }, 4000);
-        }, 4000);
-      }, 4000);
-    }, 4000);
+          }, 3000);
+        }, 3000);
+      }, 3000);
+    }, 3000);
   };
 
   return (
@@ -50,11 +50,11 @@ export function Hero() {
         The road to explore starts from here
       </p>
 
-      {/*{laggy ? (*/}
-      {/*  <TypewriterEffect words={words} key={words[0].text} />*/}
-      {/*) : (*/}
-      <TypewriterEffectSmooth words={words} key={words[0].text} />
-      {/*)}*/}
+      {laggy ? (
+        <TypewriterEffect words={words} key={words[0].text} />
+      ) : (
+        <TypewriterEffectSmooth words={words} key={words[0].text} />
+      )}
 
       <div className={'mt-10 flex flex-col'}>
         <button
