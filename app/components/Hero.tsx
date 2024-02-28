@@ -1,5 +1,3 @@
-'use client';
-
 import {
   TypewriterEffect,
   TypewriterEffectSmooth,
@@ -15,6 +13,7 @@ export function Hero() {
   const [exploreButtonClass, setExploreButtonClass] = useState('invisible');
   const [words, setWords] = useState(heroDialogs.dialog1);
   const [laggy, setLaggy] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setWords(heroDialogs.dialog2);
@@ -50,11 +49,12 @@ export function Hero() {
       <p className='animate-fadeOut mb-10 text-base text-neutral-600 dark:text-neutral-200'>
         The road to explore starts from here
       </p>
-      {laggy ? (
-        <TypewriterEffect words={words} key={words[0].text} />
-      ) : (
-        <TypewriterEffectSmooth words={words} key={words[0].text} />
-      )}
+
+      {/*{laggy ? (*/}
+      {/*  <TypewriterEffect words={words} key={words[0].text} />*/}
+      {/*) : (*/}
+      <TypewriterEffectSmooth words={words} key={words[0].text} />
+      {/*)}*/}
 
       <div className={'mt-10 flex flex-col'}>
         <button

@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/utils/cn';
@@ -85,7 +84,7 @@ export const BackgroundBeams = React.memo(
               d={path}
               stroke={`url(#linearGradient-${index})`}
               strokeOpacity='0.4'
-              strokeWidth='0.5'
+              strokeWidth={Math.random()}
             ></motion.path>
           ))}
           <defs>
@@ -107,7 +106,7 @@ export const BackgroundBeams = React.memo(
                   duration: Math.random() * 10 + 10,
                   ease: 'easeInOut',
                   repeat: Infinity,
-                  delay: Math.random() * 10,
+                  delay: 0,
                 }}
               >
                 <stop stopColor='#18CCFC' stopOpacity='0'></stop>
@@ -136,4 +135,4 @@ export const BackgroundBeams = React.memo(
   }
 );
 
-BackgroundBeams.displayName = 'BackgroundBeams';
+BackgroundBeams.displayName = 'BackgroundBeam';

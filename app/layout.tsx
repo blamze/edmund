@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { seoData } from '@/app/data/SEO';
 import { cn } from '@/utils/cn';
+import { ClientOnly } from '@/app/components/ClientOnly';
+import { DarkModeToggle } from '@/app/components/DarkModeToggle/DarkModeToggle';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,8 +21,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={cn(inter.className, 'bg-gray-100 dark:bg-gray-950')}>
-        {children}
+      <body className={cn(inter.className, 'bg-gray-50 dark:bg-gray-950')}>
+        <div className='flex min-h-screen flex-col items-center justify-between'>
+          <header className='relative flex w-full justify-end p-2'>
+            <ClientOnly>
+              <DarkModeToggle />
+            </ClientOnly>
+          </header>
+          <main>{children}</main>
+          <footer className='text flex justify-end p-2 text-black dark:text-white'>
+            <Link href='/contact'>By Edmundas</Link>
+          </footer>
+        </div>
       </body>
     </html>
   );
