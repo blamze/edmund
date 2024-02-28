@@ -5,9 +5,9 @@ import { BackgroundBeams } from '@/app/components/BackgroundBeam';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Hero />
       <BackgroundBeams className='-z-10' />
-    </div>
+    </>
   );
 }
