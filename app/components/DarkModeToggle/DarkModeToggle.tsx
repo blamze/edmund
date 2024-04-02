@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX, ClassAttributes, InputHTMLAttributes } from 'react';
+import { JSX, ClassAttributes, InputHTMLAttributes, useEffect } from 'react';
 import './styles.css';
 import { useDarkMode } from '@/app/hooks/useDarkMode';
 
@@ -10,6 +10,21 @@ export function DarkModeToggle({
 }: JSX.IntrinsicAttributes &
   ClassAttributes<HTMLInputElement> &
   InputHTMLAttributes<HTMLInputElement>) {
+  useEffect(() => {
+    const styles = [
+      'color: deepskyblue',
+      'background: gray',
+      'font-size: 20px',
+      'border: 1px solid orange',
+      'text-shadow: 2px 2px black',
+      'padding: 10px',
+    ].join(';');
+    console.log(
+      "%cLet's inspect this together 😎🤝 - 👉 contact me 👈",
+      styles
+    );
+  }, []);
+
   const { toggleTheme, isDark } = useDarkMode();
 
   return (
