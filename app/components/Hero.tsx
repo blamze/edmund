@@ -17,10 +17,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setWords(heroDialogs.dialog2);
-      setTimeout(() => {
-        setWords(heroDialogs.dialog3);
-        setTimeout(() => setHelpButtonClass('visible animate-fadeIn'), 3000);
-      }, 3000);
+      setTimeout(() => setHelpButtonClass('visible animate-fadeIn'), 3000);
     }, 5500);
     return () => clearTimeout(timer);
   }, []);
@@ -29,24 +26,15 @@ export function Hero() {
     setHelpButtonClass('invisible');
 
     setLaggy(false);
-    setWords(heroDialogs.dialog4);
+    setWords(heroDialogs.dialog3);
     setTimeout(() => {
-      setWords(heroDialogs.dialog5);
-      setTimeout(() => {
-        setWords(heroDialogs.dialog6);
-        setTimeout(() => {
-          setWords(heroDialogs.dialog7);
-          setTimeout(() => {
-            setExploreButtonClass('visible animate-fadeIn');
-          }, 2000);
-        }, 2500);
-      }, 3000);
-    }, 2500);
+      setExploreButtonClass('visible animate-fadeIn');
+    }, 2000);
   };
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <p className='animate-fadeOut mb-10 text-base text-neutral-600 dark:text-neutral-200'>
+      <p className='mb-10 animate-fadeOut text-base text-neutral-600 dark:text-neutral-200'>
         The road to explore starts from here
       </p>
 
@@ -64,10 +52,10 @@ export function Hero() {
           )}
           onClick={handleClick}
         >
-          Help me
+          Help
         </button>
         <Link href='/beginning' className={exploreButtonClass}>
-          <MagicButton className='w-full'>Explore</MagicButton>
+          <MagicButton className='w-full'>Bring destruction</MagicButton>
         </Link>
       </div>
     </div>

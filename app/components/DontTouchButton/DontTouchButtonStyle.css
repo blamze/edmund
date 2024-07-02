@@ -9,6 +9,7 @@
     justify-content: center;
     min-height: 350px;
     overflow: hidden;
+    min-width: 350px
 }
 
 .dont-touch__text {

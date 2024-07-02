@@ -35,15 +35,15 @@ export default function Beginning() {
     }));
   };
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <BackgroundGradientAnimation
         {...gradientState}
         key={gradientState.gradientBackgroundStart}
         containerClassName='absolute'
       />
-      <div className='flex flex-col gap-4'>
-        <DontTouchButton />
+      <DontTouchButton />
 
+      <div className='mt-10 flex w-fit flex-col gap-4'>
         <MagicButton
           className='w-full'
           childrenClassName='bg-transparent'

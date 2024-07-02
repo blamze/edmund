@@ -28,7 +28,7 @@ export default function RootLayout({
               <DarkModeToggle />
             </ClientOnly>
           </header>
-          <main className='flex flex-1 flex-col items-center justify-center'>
+          <main className='flex w-screen flex-1 flex-col items-center justify-center'>
             {children}
           </main>
           <footer className='text z-20 flex justify-end p-2 text-black dark:text-white'>
