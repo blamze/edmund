@@ -4,6 +4,7 @@ import { BackgroundGradientAnimation } from '@/app/components/BackgroundGradient
 import Link from 'next/link';
 import { MagicButton } from '@/app/components/MagicButton';
 import { useState } from 'react';
+import { DontTouchButton } from '@/app/components/DontTouchButton/DontTouchButton';
 
 export default function Beginning() {
   const [gradientState, setGradientState] = useState({
@@ -41,6 +42,8 @@ export default function Beginning() {
         containerClassName='absolute'
       />
       <div className='flex flex-col gap-4'>
+        <DontTouchButton />
+
         <MagicButton
           className='w-full'
           childrenClassName='bg-transparent'
