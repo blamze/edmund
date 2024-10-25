@@ -26,8 +26,10 @@ const useHover = () => {
     ref.current!.addEventListener('mouseenter', enter);
     ref.current!.addEventListener('mouseleave', leave);
     return () => {
-      ref.current!.removeEventListener('mouseenter', enter);
-      ref.current!.removeEventListener('mouseleave', leave);
+      if (ref.current) {
+        ref.current!.removeEventListener('mouseenter', enter);
+        ref.current!.removeEventListener('mouseleave', leave);
+      }
     };
   }, [ref]);
 
@@ -77,14 +79,15 @@ const usePosition = () => {
  */
 
 export class DontTouchButton extends React.Component<
-  {},
-  { cursorGrabbed: boolean; gameOver: boolean }
+  { onMiss: () => void; onFinal: () => void },
+  { cursorGrabbed: boolean; gameOver: boolean; missCount: number }
 > {
   constructor(props: any) {
     super(props);
     this.state = {
       cursorGrabbed: false,
       gameOver: false,
+      missCount: 0,
     };
 
     this.handleButtonClicked = this.handleButtonClicked.bind(this);
@@ -98,7 +101,12 @@ export class DontTouchButton extends React.Component<
     setTimeout(() => {
       this.setState({
         cursorGrabbed: false,
+        missCount: this.state.missCount + 1,
       });
+      this.props.onMiss();
+      if (this.state.missCount > 0) {
+        this.props.onFinal();
+      }
     }, 2000);
   }
 

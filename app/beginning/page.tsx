@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { MagicButton } from '@/app/components/MagicButton';
 import { useState } from 'react';
 import { DontTouchButton } from '@/app/components/DontTouchButton/DontTouchButton';
+import { cn } from '@/utils/cn';
 
 export default function Beginning() {
   const [gradientState, setGradientState] = useState({
@@ -21,7 +22,7 @@ export default function Beginning() {
   });
   const getRandColor = () =>
     `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}`;
-  const handleClick = () => {
+  const changeColors = () => {
     setGradientState((val) => ({
       ...val,
       gradientBackgroundStart: `rgb(${getRandColor()})`,
@@ -34,6 +35,8 @@ export default function Beginning() {
       pointerColor: `${getRandColor()}`,
     }));
   };
+  const [visibleButton, setVisibleButton] = useState(false);
+  const showButton = () => setVisibleButton(true);
   return (
     <div className='flex flex-col items-center'>
       <BackgroundGradientAnimation
@@ -41,19 +44,18 @@ export default function Beginning() {
         key={gradientState.gradientBackgroundStart}
         containerClassName='absolute'
       />
-      <DontTouchButton />
+      <DontTouchButton onMiss={changeColors} onFinal={showButton} />
 
       <div className='mt-10 flex w-fit flex-col gap-4'>
-        <MagicButton
-          className='w-full'
-          childrenClassName='bg-transparent'
-          onClick={handleClick}
+        <Link
+          href='/around-the-world'
+          className={cn({
+            invisible: !visibleButton,
+            'visible animate-fadeIn': visibleButton,
+          })}
         >
-          Randomize some colors!
-        </MagicButton>
-        <Link href='/around-the-world'>
           <MagicButton className='w-full' childrenClassName='bg-transparent'>
-            Travel around the world!
+            Ok Ok, move on 🌍
           </MagicButton>
         </Link>
       </div>

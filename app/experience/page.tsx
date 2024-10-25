@@ -1,12 +1,12 @@
 'use client';
 
 import { BackgroundBeams } from '@/app/components/BackgroundBeam';
-import { FloatingCardPreview } from '@/app/components/FloatingCard/FloatingCardPreview';
+import { Hero } from '@/app/components/Hero';
 
 export default function Contact() {
   return (
     <>
-      <FloatingCardPreview />
+      <Hero />
       <BackgroundBeams className='-z-10' />
     </>
   );
